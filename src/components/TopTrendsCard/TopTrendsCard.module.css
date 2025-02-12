@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: white;
+  text-align: center;
+}
+
+.layout h3 {
+  font-weight: 700;
+}

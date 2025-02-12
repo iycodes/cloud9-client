@@ -1,0 +1,72 @@
+.newPostModal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.15);
+    /* padding: 70px; */
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease-in-out;
+  }
+  .layout {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: end;
+    /* margin-bottom: 20px; */
+    padding-bottom: 10px;
+    padding-top: 5px;
+
+  }
+  .newPostModalHide {
+    /* visibility:hidden;
+    backdrop-filter: blur(0px);
+    transition: all 0.4s ease-in-out; */
+    /* display: none; */
+  }
+  
+  
+  .inputArea {
+    background-color: white;
+    border-radius: 5px;
+    /* width: 400px; */
+    width: 90%;
+    /* border: 1px solid rgba(0, 0, 0, 0.15); */
+    background-color: whitesmoke;
+   
+  }
+  .inputArea textarea {
+    display: flex;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    /* margin-top: 5px;
+    margin-left: 5px; */
+    /* height: 100%; */
+    /* width: 400px; */
+    width: 100%;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-top: 10px;
+    /* background-color:white; */
+  }
+  .postBtn {
+    display: flex;
+    /* width: 100%; */
+    width: auto;
+    /* background-color: red; */
+    padding-right: 5px;
+    padding-bottom: 5px;
+    justify-content: end;
+  }
+  .postBtn button {
+    background-color: white;
+    text-transform: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    font-size: small;
+    font-weight: 600;
+    height: 28px;
+  }

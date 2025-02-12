@@ -1,0 +1,41 @@
+
+@font-face {
+  font-family: "museo_slab";
+  src: url("./assets/fonts/museo-slab/Museo_Slab_700.otf");
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+
+
+body {
+  /* max-width: 1100px; */
+  margin: 0 auto;
+  /* background-color: black; */
+}
+
+:where([data-sonner-toaster]) {
+  padding: 1rem !important;
+}
+:root,
+html,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat";
+}
+
+h1, h2, h3{
+  color: #36013F ;
+  font-family: museo_slab, Arial, sans-serif !important;
+
+}
+
+label {
+  color: #36013F ;
+
+}

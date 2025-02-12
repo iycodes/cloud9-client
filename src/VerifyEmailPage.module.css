@@ -1,0 +1,38 @@
+.layout {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+width: 100%;
+}
+
+.topText {
+    position: absolute;
+    /* inset: 10px 0px 0px 10px; */
+    left: 20px;
+    top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 40px;
+    font-weight: 800;
+    font-size: large;
+    margin: 10px 0 0 10px;
+    color: rgb(125, 87, 217);
+    z-index: 5;
+    /* background-color: #ffffff; */
+    width: min-content;
+    padding: 5px;
+    border-radius: 5px;
+  
+  
+  }
+  
+  label {
+    display: block;
+  }
+  
+  .shape {
+    height: 7px;
+    width: 7px;
+    background-color: rgb(125, 87, 217);
+  }
+  

@@ -1,0 +1,375 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: black;
+  background-color: #d2d0e0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+.layout {
+  display: flex;
+  min-width: 599px;
+  height: fit-content;
+  /* max-height: 90vh; */
+  min-height: 512px;
+  max-width: 999px;
+  width: 80vw;
+  align-self: center;
+  border-radius: 18px;
+  flex-direction: row;
+  background-color: #f2f5f9;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border: 4px solid #d2d0e0;
+  overflow: scroll;
+}
+.loginRoute {
+  font-weight: 600;
+  font-size: small;
+  color: #a497c0;
+  /* margin: 1rem 0 1rem 0; */
+  align-self: flex-start;
+}
+.loginRoute a {
+  text-decoration: none;
+  color: rgb(125, 87, 217);
+}
+
+.topText {
+  position: fixed;
+  /* inset: 10px 0px 0px 10px; */
+  left: 0px;
+  top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 40px;
+  font-weight: 800;
+  font-size: large;
+  margin: 10px 0 0 10px;
+  color: rgb(125, 87, 217);
+  z-index: 5;
+  background-color: #ffffff;
+  width: min-content;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+}
+
+.shape {
+  height: 7px;
+  width: 7px;
+  background-color: rgb(125, 87, 217);
+}
+
+.leftSide {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lottie_anim {
+  align-self: center;
+  width: 120px;
+}
+
+.form_wrapper {
+  display: flex;
+  /* height: 100%; */
+  justify-content: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /* background-color: green; */
+  background-color: transparent;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  height: auto;
+  padding: 1rem 5%;
+  border: 3px solid #f2f5f9;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  align-self: center;
+}
+
+.gender {
+  padding: 0 5px;
+}
+
+.error {
+  color: #7d57d9;
+  max-width: 80%;
+  margin-top: 3px;
+  font-size: small;
+  opacity: 1;
+}
+
+.form_Header {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+  /* opacity: 0.7; */
+}
+
+.form_Header h1 {
+  margin-top: 20px;
+  /* color: #202020; */
+  opacity: 0.8;
+}
+
+.form_Header p {
+  color: black;
+  opacity: 0.4;
+  font-weight: 600;
+  font-size: small;
+  width: 70%;
+}
+
+.form_Field {
+  margin-bottom: 12px;
+}
+
+.form_Field label {
+  margin-bottom: 3px;
+  opacity: 0.7;
+  font-size: small;
+  font-weight: 600;
+}
+
+.form_Field > input {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: none;
+  height: 45px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  outline: transparent;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding-left: 10px;
+}
+
+.form_Field input::placeholder {
+  color: #d3d3d3;
+  /* font-size: ; */
+}
+
+.show_password {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+.show_password input {
+  margin-right: 10px;
+  height: 20px !important;
+  display: inline;
+}
+
+.ForgotPassword {
+  font-weight: 600;
+  font-size: small;
+  /* margin-top: 20px; */
+  margin-bottom: 17px;
+}
+
+.ForgotPassword a {
+  text-decoration: none;
+  color: rgb(125, 87, 217);
+}
+
+.signUpRoute {
+  font-weight: 600;
+  font-size: small;
+  color: #a497c0;
+  /* margin: 1rem 0 1rem 0; */
+  align-self: flex-start;
+}
+
+.signUpRoute a {
+  text-decoration: none;
+  color: rgb(125, 87, 217);
+}
+
+.form button {
+  display: flex;
+  font-weight: 700;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  background-color: #7d57d9;
+  border-color: transparent;
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: row;
+  height: 1fr;
+  width: 40%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.section1 {
+  background-color: #b19cd8;
+  width: 100%;
+}
+
+.section2 {
+  background-color: #bea9df;
+  width: 100%;
+}
+
+.section3 {
+  background-color: #cbb7e5;
+  width: 100%;
+}
+
+.section4 {
+  background-color: #d9c4ec;
+  width: 100%;
+}
+
+.section5 {
+  background-color: #e6d1f2;
+  width: 100%;
+}
+
+.section6 {
+  background-color: #b19cd8;
+  width: 100%;
+}
+
+.section7 {
+  background-color: #bea9df;
+  width: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.name {
+  display: flex;
+  gap: 7px;
+}
+
+.email_gender {
+  display: flex;
+  gap: 20px;
+}
+
+.email_gender > div:has(input) {
+  /* background-color: black; */
+  width: 100%;
+}
+
+.email_gender > div:has(select) {
+  width: min-content;
+  /* background-color: red; */
+}
+
+.email_gender > div > select {
+  height: 45px;
+}
+
+.form_Field .email_gender > div {
+  width: 100%;
+}
+
+.form_Field select {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+@media screen and (max-width: 700px) {
+  .layout {
+    /* position: fixed; */
+    min-width: auto;
+    width: 95vw;
+    position: relative;
+    border: none;
+    max-width: 500px;
+    /* min-height: 75dvh; */
+    background-color: green;
+    
+  }
+
+  .form_wrapper {
+    position: relative;
+    min-width: auto;
+    width: 100%;
+    /* padding-left: 0;
+    padding-right: 0; */
+    padding: 0px;
+    
+    background-color: red;
+
+    
+  }
+
+  .form {
+    min-width: auto;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: 4px solid #d2d0e0;
+    border-radius: 18px;
+    
+  }
+
+  .rightSide {
+    display: none;
+  }
+
+  .leftSide {
+    width: 100%;
+    margin-left: auto;
+    align-items: center;
+  }
+
+  .form button {
+    /* background-color: black; */
+    margin-top: auto;
+  }
+
+  .signUpRoute a {
+    align-self: flex-end;
+    margin-top: auto;
+  }
+
+  .bottom {
+    margin-top: auto;
+    display: flex;
+    height: max-content;
+    background-color: gray;
+    flex-direction: column;
+  }
+}

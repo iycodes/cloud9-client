@@ -1,0 +1,91 @@
+.layout {
+  display: flex;
+  /* min-height: 130px; */
+  flex-direction: row;
+  width: 95%;
+  height: auto;
+  margin-bottom: 15px;
+  background-color: whitesmoke;
+  /* padding: 10px; */
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.toast {
+  padding: 1rem !important;
+}
+
+
+.left img {
+  border-radius: 100%;
+  height: 60px;
+  aspect-ratio: 1/1;
+}
+
+.layout .right {
+  padding: 5px 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  justify-self: end;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px; */
+}
+
+.right textArea {
+  display: flex;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.right textArea::placeholder {
+  font-size: 1rem;
+}
+
+.inputActions {
+  /* height: 40px; */
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.otherBtns {
+  /* width: 70%; */
+}
+
+.mediaa {
+
+  /* background-color: red; */
+  height: 20px;
+
+}
+
+.otherBtns input {
+  display: none;
+}
+
+
+.otherBtns input .postBtn {
+  display: flex;
+  width: 30%;
+  justify-content: end;
+}
+
+.postBtn button {
+  background-color: white;
+  text-transform: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  font-size: small;
+  font-weight: 600;
+  height: 28px;
+}

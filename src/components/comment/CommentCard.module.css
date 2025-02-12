@@ -1,0 +1,13 @@
+.replies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    color: purple;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.commentInput {
+    width: 100%;
+}

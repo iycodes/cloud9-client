@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: grid;
+  width: 95vw;
+  max-width: 1000px;
+  grid-template-columns: 1.5fr 3.5fr;
+  grid-template-rows: 60px auto;
+  height: 100vh;
+  max-height: 100vh;
+  gap: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header {
+  width: 100%;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  background-color: white;
+  height: 60px;
+}
+.rightsidebar div {
+  border-radius: 10px;
+}
+
+.main {
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.main div {
+  border-radius: 10px;
+}
+.stickyBar {
+  z-index: +1;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  min-height: 45px;
+  min-width: 100%;
+  width: 100%;
+  top: 0px;
+  position: sticky;
+  padding: 0 20px;
+  backdrop-filter: blur(20px);
+}
+.miniProfile {
+  display: flex;
+  background-color: red;
+  min-width: 400px;
+  width: 100%;
+}
+.miniProfile img {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 7px;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 3/1;
+}
+.leftsidebar {
+  width: 100%;
+  overflow: scroll;
+  min-height: 300px;
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.leftsidebar div {
+  border-radius: 10px;
+}
+.rightsidebar {
+  width: 100%;
+  overflow: scroll;
+  min-height: 300px;
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.main::-webkit-scrollbar,
+.rightsidebar::-webkit-scrollbar,
+.leftsidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main,
+.rightsidebar,
+.leftsidebar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

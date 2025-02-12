@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    justify-self: flex-end;
+  }
+  
+  .link1 {
+    text-decoration: none;
+    color: inherit
+  }
+  
+  .layout {
+    align-self: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding: 10px 15px 5px 15px;
+    margin-bottom: 15px;
+    /* color: whitesmoke; */
+  }
+  .layout span {
+    color:rgba(191, 85, 236, 0.26) ;
+    font-weight: 700;
+  }
+  
+  .rbc {
+    display: flex;
+    margin-top: -5px;
+    /* margin-bottom: 5px; */
+    align-self: center;
+  
+  }
+  
+  .top {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  
+  }
+  
+  .top1 {
+    display: flex;
+    width: 40%;
+  }
+  
+  .authorName {
+    font-weight: 600;
+    opacity: 0.35;
+    font-size: 0.8em;
+  }
+  
+  .top2 {
+    justify-content: end;
+    display: flex;
+    width: 60%;
+    align-items: center;
+  }
+  
+  .moreOptions {
+    align-self: flex-end;
+  }
+  
+  .quote {
+    align-self: flex-start;
+    background-color: red;
+  }
+  
+  .middle {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+  
+  .avatar {
+  
+    border-radius: 100px;
+    aspect-ratio: 1/1;
+    height: 50px;
+  }
+  
+  .contentBox {
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    padding: 7px;
+    /* width: 90%; */
+    height: auto;
+    /* border: 0.3px solid rgba(106, 13, 173, 0.3); */
+    margin-left: 20px;
+    background-color: white;
+  color: #808080;
+    position: relative;
+    /* margin-left: 20px; */
+    margin-bottom: 5px;
+    float: left;
+    border-radius: 10px;
+  }
+  
+  /* .contentBox:after {
+    content: " ";
+    position: absolute;
+    left: -15px;
+    top: 5px;
+    border-top: 10px solid transparent;
+    border-right: 10px solid rgba(106, 13, 173, 0.15);
+    border-left: none;
+    border-bottom: 10px solid transparent;
+  } */
+  .interactions {
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    justify-content: flex-end;
+  }
