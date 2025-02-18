@@ -16,29 +16,26 @@ import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Authentication/AuthContext";
-export const HeaderBar = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
+export const HeaderBar = ({ setShowModal }) => {
   const testing = () => {
     console.log("testing... testing...");
   };
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState(null);
-  const showMenuOptions = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-  const hideMenuOptions = () => {
-    setAnchorEl(null);
-    navigate("/settings");
-  };
   const authContext = useContext(AuthContext);
 
   const [error, setError] = useState("");
+  const [showMenu, setshowMenu] = useState(false);
 
   async function handlelogOut() {
     setError("");
     try {
       console.log("signout is yet to be implemented");
       window.localStorage.clear();
-      navigate("/login");
+      authContext.authUserData = null;
+      dispatch(logout());
     } catch {
       setError("Failed to Log Out");
     }
@@ -53,9 +50,10 @@ export const HeaderBar = () => {
           <div className={styles.topText}>
             <div className={styles.shape}> </div> Cloud9
           </div>
-          <img src={home} alt="" />
-          <input placeholder="# Explore" />
+        </div>
+        <div className={styles.newPost} onClick={() => setShowModal(true)}>
           <img className={styles.newPostBtn} src={addIcon} alt="" />
+          <span>New post</span>
         </div>
         <div className={styles.two}>{/* empty space */}</div>
         <div className={styles.three}>
@@ -79,32 +77,49 @@ export const HeaderBar = () => {
             </div>
           </Badge>
 
-          <div
-            id={menuId}
+          {/* <div
             className={styles.menuList}
             role="button"
-            onClick={showMenuOptions}
+            // onClick={showMenuOptions}
           >
-            <img src={purplemenu4} alt="" />
-          </div>
-          <Menu
-            id={menuId}
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={hideMenuOptions}
-            // anchorOrigin={{
-            //   vertical: "top",
-            //   horizontal: "right",
-            // }}
-            // transformOrigin={{ vertical: "top", horizontal: "right" }}
-          >
-            <MenuItem onClick={hideMenuOptions}>
+            <img
+              onClick={() => setshowMenu((x) => !x)}
+              src={purplemenu4}
+              alt=""
+            />
+            <div
+              className={`${styles.options} ${!showMenu ? styles.hide : ""}`}
+            >
               <Link className={styles.settings} to="/settings">
-                settings
+                Settings
               </Link>
-            </MenuItem>
-            <MenuItem onClick={handlelogOut}>log out</MenuItem>
-          </Menu>
+              <div className={styles.logout} onClick={handlelogOut}>
+                Log Out
+              </div>
+            </div>
+          </div> */}
+        </div>
+        <div
+          className={styles.menuList}
+          role="button"
+          // onClick={showMenuOptions}
+        >
+          <img
+            onClick={() => setshowMenu((x) => !x)}
+            src={purplemenu4}
+            alt=""
+          />
+          <div
+            style={{ zIndex: "10" }}
+            className={`${styles.options} ${!showMenu ? styles.hide : ""}`}
+          >
+            <Link className={styles.settings} to="/settings">
+              Settings
+            </Link>
+            <div className={styles.logout} onClick={handlelogOut}>
+              Log Out
+            </div>
+          </div>
         </div>
       </div>
     </>

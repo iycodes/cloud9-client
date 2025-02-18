@@ -12,6 +12,8 @@ import styled from "styled-components";
 import anim from "../../assets/lottie/Animation_1702476191986.json";
 import Lottie from "lottie-react";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../features/auth/authSlice";
 
 //
 
@@ -28,7 +30,7 @@ const Error = styled.p`
 //
 export const SignUp = () => {
   const [createUser, { isSuccess }] = useCreateUserMutation();
-
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState({
     firstname: "",
     lastname: "",
@@ -39,7 +41,7 @@ export const SignUp = () => {
   });
   const [signUpError, setSignUpError] = useState("");
   const navigate = useNavigate();
-  const passwordFieldRef = useRef()
+  const passwordFieldRef = useRef();
   const [formErrors, setFormErrors] = useState({});
   const [submitClicked, setSubmitClicked] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
@@ -88,7 +90,7 @@ export const SignUp = () => {
           setSignUpError("");
           setSignUpSuccess("");
           setLoading(true);
-          await createUser({
+          const response = await createUser({
             firstname: formValues.firstname,
             lastname: formValues.lastname,
             email: formValues.email,
@@ -98,13 +100,13 @@ export const SignUp = () => {
           }).unwrap();
           setSignUpSuccess(true);
           console.log("user created succedfully");
+          dispatch(setCredentials({ ...response }));
           navigate("/verify_email");
         } catch (error) {
           console.log(error);
           setFormErrors({
             email: error?.data?.message,
           });
-
           setSignUpError("Failed to create account");
         }
         setLoading(false);
@@ -114,15 +116,14 @@ export const SignUp = () => {
 
     return errors;
   };
-function showPasssword(){
-  if(passwordFieldRef.current.getAttribute("type")=="text"){
-    passwordFieldRef.current.setAttribute("type", "password")
-    return;
+  function showPasssword() {
+    if (passwordFieldRef.current.getAttribute("type") == "text") {
+      passwordFieldRef.current.setAttribute("type", "password");
+      return;
     }
-passwordFieldRef.current.setAttribute("type", "text")
-console.log("password shown")
-
-}
+    passwordFieldRef.current.setAttribute("type", "text");
+    console.log("password shown");
+  }
   return (
     <>
       <div className={styles.wrapper}>
@@ -204,7 +205,7 @@ console.log("password shown")
                   <div className={styles.form_Field}>
                     <label>Gender</label>
                     <select
-                    className={styles.gender}
+                      className={styles.gender}
                       name="gender"
                       id="gender"
                       // onSelect={onChangeHandler}
@@ -219,7 +220,7 @@ console.log("password shown")
                 <div className={styles.form_Field}>
                   <label>Password</label>
                   <input
-                  ref={passwordFieldRef}
+                    ref={passwordFieldRef}
                     type="password"
                     name="password"
                     placeholder="password"
@@ -232,8 +233,9 @@ console.log("password shown")
                   >
                     {formErrors.password}
                   </Error>
-                  <div className={styles.show_password} >
-                  <input  onChange={showPasssword} type="checkbox" />Show password
+                  <div className={styles.show_password}>
+                    <input onChange={showPasssword} type="checkbox" />
+                    Show password
                   </div>
                 </div>
                 <div className={styles.form_Field}>
@@ -252,7 +254,6 @@ console.log("password shown")
                     {formErrors.confirmPassword}
                   </Error>
                 </div>
-           
 
                 <button disabled={loading} type="submit">
                   {loading ? (

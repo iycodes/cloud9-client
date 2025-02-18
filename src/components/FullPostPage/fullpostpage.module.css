@@ -13,7 +13,7 @@
 
 }
 
-.layout {
+.layput {
     display: grid;
     width: 95vw;
     max-width: 1000px;
@@ -22,11 +22,20 @@
     height: 100vh;
     max-height: 100vh;
     gap: 1rem;
-    /* background-color: red; */
+    background-color: red;
+
 }
-.layput {
+
+.layout {
+    width: 95vw;
+    max-width: 1000px;
     overflow: scroll;
+    gap: 1rem;
+    height: 100vh;
+    max-height: 100vh;
+
 }
+
 .header {
     width: 100%;
     grid-column: 1/4;
@@ -54,6 +63,7 @@
     grid-row: 2/3;
     max-width: 1000px;
 }
+
 .main {
     width: 100%;
     overflow: scroll;
@@ -62,10 +72,13 @@
     align-items: center;
     grid-column: 2/3;
     grid-row: 1/2;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+
+    /* Firefox */
     &::-webkit-scrollbar {
-      display: none;
+        display: none;
     }
 }
 
@@ -142,7 +155,6 @@
     .layout {
         display: flex;
         width: 100%;
-
     }
 
     .header {
@@ -153,7 +165,7 @@
     }
 
     .leftsidebar {
-        display: none;
+        /* display: none; */
     }
 
 

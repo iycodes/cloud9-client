@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  justify-self: flex-end;
 }
 
 .link1 {
@@ -18,6 +17,8 @@
   width: 95%;
   padding: 10px 15px 5px 15px;
   margin-bottom: 15px;
+  position: relative;
+  z-index: -1 !important;
 }
 
 .rbc {
@@ -76,6 +77,14 @@
   height: 50px;
 }
 
+.contentBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  position: relative;
+  /* z-index: -1 !important; */
+}
+
 .contentBox {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 7px;
@@ -84,11 +93,9 @@
   border: 0.3px solid rgba(106, 13, 173, 0.3);
   margin-left: 20px;
   background-color: white;
-
   position: relative;
   /* margin-left: 20px; */
   margin-bottom: 5px;
-  float: left;
   border-radius: 10px;
 }
 

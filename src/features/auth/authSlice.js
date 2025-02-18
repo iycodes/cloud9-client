@@ -7,6 +7,12 @@ const authSlice = createSlice({
   initialState: () => {
     const userId = window.localStorage.getItem("userId");
     const accessToken = window.localStorage.getItem("token");
+    console.log(
+      "redux initial state userId and access token are ",
+      userId,
+      "and",
+      accessToken
+    );
     return { userId: userId, accessToken: accessToken, userData: {} };
   },
   reducers: {

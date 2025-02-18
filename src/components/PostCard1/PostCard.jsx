@@ -22,11 +22,6 @@ import { LikeComment_BC_COMMENT } from "./LikeComment_BC_COMMENT";
 //
 
 //
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-`;
 
 const AvatarWrapper = styled.div`
   display: flex;
@@ -92,7 +87,7 @@ export const PostCard = React.memo(({ postIdProp }) => {
               </Link>
             </AvatarWrapper>
           </div>
-          <Wrapper>
+          <div className={styles.contentBoxWrapper}>
             <div
               className={styles.contentBox}
               onClick={(e) => {
@@ -102,13 +97,12 @@ export const PostCard = React.memo(({ postIdProp }) => {
               {eachPost?.body}
             </div>
             <CommentCount postId={eachPost?.id} />
-          </Wrapper>
+          </div>
           <div className={styles.interactions}>
             <BroadcastPost postId={postIdcontext} />
             <Likes postId={eachPost?.id} />
           </div>
         </div>
-
         {/* <PostInteractions styleProps={styles.bottom} postId={postIdcontext } /> */}
       </div>
     );
@@ -142,7 +136,7 @@ export const PostCard = React.memo(({ postIdProp }) => {
               />
             </Link>
           </div>
-          <Wrapper>
+          <div className={styles.contentBoxWrapper}>
             <div
               className={styles.contentBox}
               onClick={(e) => {
@@ -152,7 +146,7 @@ export const PostCard = React.memo(({ postIdProp }) => {
               {broadcastedPost?.body}
             </div>
             <CommentCount postId={broadcastedPost?.id} />
-          </Wrapper>
+          </div>
           <div className={styles.interactions}>
             <BroadcastPost
               ogPostId={eachPost?.id}
@@ -196,7 +190,7 @@ export const PostCard = React.memo(({ postIdProp }) => {
               />
             </Link>
           </div>
-          <Wrapper>
+          <div className={styles.contentBoxWrapper}>
             <div
               className={styles.contentBox}
               onClick={(e) => {
@@ -206,7 +200,7 @@ export const PostCard = React.memo(({ postIdProp }) => {
               {broadcastedComment?.body}
             </div>
             <CommentCount postId={broadcastedComment?.id} />
-          </Wrapper>
+          </div>
           <div className={styles.interactions}>
             <BroadcastComment
               ogPostId={eachPost?.id}

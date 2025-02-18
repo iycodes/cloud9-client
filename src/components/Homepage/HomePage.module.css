@@ -4,52 +4,68 @@
 
 .container {
   background-color: #d2d0e0;
-  position: fixed;
+  /* position: fixed; */
   width: 100vw;
   height: 100dvh;
   display: flex;
   /* align-items: center; */
   justify-content: center;
-
 }
 
+
 .layout {
-  display: grid;
+  position: relative;
+  /* display: grid; */
   width: 95vw;
   max-width: 1000px;
-  grid-template-columns: 1.5fr 3.5fr;
-  grid-template-rows: 60px auto;
-  height: 100vh;
+  /* grid-template-columns: 1.5fr 3.5fr;
+  grid-template-rows: 60px auto; */
+  /* height: 100vh; */
   max-height: 100vh;
   gap: 1rem;
   /* background-color: red; */
 }
 
+
 .header {
+  position: relative;
   width: 100%;
-  grid-column: 1/4;
-  grid-row: 1/2;
   /* background-color: white; */
   height: 60px;
-  /* over */
+  margin-bottom: 1rem;
+
 }
+
+
+.main {
+  position: relative;
+  display: flex;
+  /* height: 90% !important; */
+  /* height: auto; */
+  height: calc(100% - (60px + 1rem));
+
+  /* height: 80%; */
+  /* background-color: red; */
+  z-index: -1 !important;
+  gap: 1rem;
+}
+
 
 .rightsidebar div {
   border-radius: 10px;
 }
 
-.main {
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-
-  /* background-color: rgba(242, 245, 249, 0.5); */
-  width: 100%;
-
+.centre {
+  width: 68%;
+  padding-top: 20px;
+  /* position: relative; */
   overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-column: 2/3;
-  grid-row: 2/3;
+  /* position: relative; */
+  height: 100%;
+  max-height: 100%;
 }
 
 .main div {
@@ -57,13 +73,9 @@
 }
 
 .leftsidebar {
-  width: 100%;
-
+  width: 30%;
   overflow: scroll;
-  /* width: 23%; */
   min-height: 300px;
-  grid-column: 1/2;
-  grid-row: 2/3;
 }
 
 .leftsidebar div {
@@ -96,7 +108,7 @@
 
 .floatingButton {
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   width: 50px;
 }
@@ -123,17 +135,18 @@
 
 .newPostModal {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.2);
   /* padding: 70px; */
-  z-index: 99;
-  height: 100%;
-  width: 100%;
+  z-index: 4 !important;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(5px);
   transition: all 0.4s ease-in-out;
 }
+
 .newPostModalHide {
   /* visibility:hidden;
   backdrop-filter: blur(0px);
@@ -146,8 +159,11 @@
   background-color: white;
   border-radius: 5px;
   /* width: 400px; */
- 
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border: 2px solid #d2d0e0;
+
 }
+
 .newPostModal textarea {
   display: flex;
   border: none;
@@ -160,8 +176,9 @@
   background-color: transparent;
   padding-left: 10px;
   padding-top: 10px;
-  background-color:white;
+  background-color: white;
 }
+
 .postBtn {
   display: flex;
   /* width: 100%; */
@@ -170,6 +187,7 @@
   padding: 10px;
   justify-content: end;
 }
+
 .postBtn button {
   background-color: white;
   text-transform: none;
@@ -183,19 +201,27 @@
   .layout {
     display: flex;
     width: 100%;
+    padding-top: 10px;
 
   }
 
   .header {
     position: fixed;
     bottom: 0px;
-    z-index: 10;
+    z-index: 2;
     width: 100vw;
   }
 
   .leftsidebar {
     display: none;
   }
+
+  .floatingButton {
+    bottom: 80px;
+    left: 30px;
+    display: none;
+  }
+
 
 
 }

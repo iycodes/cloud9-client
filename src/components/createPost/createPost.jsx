@@ -21,40 +21,50 @@ export const CreatePost = () => {
   const authContext = useContext(AuthContext);
   const authUserData = authContext?.authUserData;
   // const textAreaRef = useRef()
-  const [addNewPost,{isSuccess, isError}] = useAddNewPostMutation();
+  const [addNewPost, { isSuccess, isError }] = useAddNewPostMutation();
   const user = useSelector((state) => selectUserById(state, authUserData?.id));
   const [postData, setPostData] = useState("");
-  
-useEffect(() => {
-  
-if(isSuccess) {
-  toast.success("post created",{id: 'toast-id'})
-  // textAreaRef.current.value =" ";
-  setPostData("")
-}
-if(isError){ toast.success("post created",{id: 'toast-id'})}
-  return () => {
-  }
-}, [isSuccess,isError])
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("post created", { id: "toast-id" });
+      // textAreaRef.current.value =" ";
+      setPostData("");
+    }
+    if (isError) {
+      toast.success("post created", { id: "toast-id" });
+    }
+    return () => {};
+  }, [isSuccess, isError]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (postData.trim() == "") {
+      toast.error("You cannot make an empty post", { id: "toast-id" });
+      return;
+    }
     try {
-      toast.loading("creating your new post",{id: 'toast-id',promise:true})
+      toast.loading("creating your new post", {
+        id: "toast-id",
+        promise: true,
+      });
       addNewPost({
         title: "POST",
         body: postData,
         userId: authUserData?.id,
       }).unwrap();
-      
     } catch (error) {
       console.log("error creating post", error);
-      toast.error("error creating post",{id: 'toast-id'})
+      toast.error("error creating post", { id: "toast-id" });
     }
   };
   return (
     <div className={styles.layout}>
-      <Toaster style={{padding:"20px"}} className={styles.toast} richColors/>
+      <Toaster
+        style={{ padding: "20px" }}
+        className={styles.toast}
+        richColors
+      />
       <form className={styles.right} onSubmit={submitHandler}>
         <TextareaAutosize
           id="textarea"
@@ -85,7 +95,6 @@ if(isError){ toast.success("post created",{id: 'toast-id'})}
           </div> */}
           <div className={styles.postBtn}>
             <Button type="submit" color="secondary">
-              {" "}
               Post
             </Button>
           </div>

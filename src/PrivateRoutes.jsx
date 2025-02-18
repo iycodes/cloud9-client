@@ -21,23 +21,28 @@ export const PrivateRoutes_LoggedIn = () => {
   const accessToken = useSelector(selectCurrentToken);
   return accessToken ? <Outlet /> : <Navigate to="/login" />;
 };
-export const PrivateRoutes_EmailVerified =  () => {
-
+export const PrivateRoutes_EmailVerified = () => {
   const userId = useSelector(selectCurrentUser);
-  const isEmailVerified = useIsEmailVerifiedQuery(userId)
-  console.log("isEmailVerified is",isEmailVerified);
-    const authContext = useContext(AuthContext);
-    const authUserData = authContext?.authUserData;
+  // const isEmailVerified = useIsEmailVerifiedQuery(userId)
+  // console.log("isEmailVerified is",isEmailVerified);
+  const authContext = useContext(AuthContext);
 
   // return <Outlet />;
-  
+  console.log(
+    "emailverified protected route, isEmailVerified in context data is",
+    authContext.authUserData?.isEmailVerified
+  );
   // return authUserData?.isEmailVerified ? <Outlet /> : <Navigate to="/verify_email" />;
-  return authUserData?.isEmailVerified == false ? <VerifyEmailPage/> :<Outlet /> 
+  return authContext.authUserData?.isEmailVerified == false ? (
+    <VerifyEmailPage />
+  ) : (
+    <Outlet />
+  );
 };
 
 export const PrivateRoutes_LoginPage = () => {
   const accessToken = useSelector(selectCurrentToken);
-  console.log("private route, accessToken is", accessToken)
+  console.log("private route, accessToken is", accessToken);
   return accessToken ? <Navigate to="/" /> : <Login />;
 };
 

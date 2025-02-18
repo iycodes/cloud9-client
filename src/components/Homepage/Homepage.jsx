@@ -44,13 +44,17 @@ export const Homepage = () => {
       setShowModal(false);
     }
     if (isError) {
-      toast.success("post created", { id: "toast-id" });
+      toast.error("post created", { id: "toast-id" });
     }
     return () => {};
   }, [isSuccess, isError]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (postData.trim() == "") {
+      toast.error("You cannot make an empty post", { id: "toast-id" });
+      return;
+    }
     try {
       toast.loading("creating your new post", {
         id: "toast-id",
@@ -75,24 +79,28 @@ export const Homepage = () => {
   ));
 
   return (
-    <div className={styles.container}>
+    <>
       <Toaster />
-      <div className={styles.layout}>
-        <div className={styles.header}>
-          <HeaderBar />
-        </div>
-        <div className={styles.leftsidebar}>
-          <ProfileCard userIdProp={userId} />{" "}
-        </div>
-        <div className={styles.main}>
-          <CreatePost />
-          {allPosts}
-        </div>
-        <div
-          onClick={() => setShowModal(true)}
-          className={styles.floatingButton}
-        >
-          <img src={addIcon} alt="" />
+      <div className={styles.container}>
+        <div className={styles.layout}>
+          <div className={styles.header}>
+            <HeaderBar setShowModal={setShowModal} />
+          </div>
+          <div className={styles.main}>
+            <div className={styles.leftsidebar}>
+              <ProfileCard userIdProp={userId} />{" "}
+            </div>
+            <div className={styles.centre}>
+              <CreatePost />
+              {allPosts}
+            </div>
+            <div
+              onClick={() => setShowModal(true)}
+              className={styles.floatingButton}
+            >
+              <img src={addIcon} alt="" />
+            </div>
+          </div>
         </div>
         <div
           onClick={() => setShowModal(false)}
@@ -100,7 +108,7 @@ export const Homepage = () => {
           className={`${styles.newPostModal} ${
             !showModal ? styles.newPostModalHide : ""
           }
-           `}
+        `}
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -127,6 +135,6 @@ export const Homepage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

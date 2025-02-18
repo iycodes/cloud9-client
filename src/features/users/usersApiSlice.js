@@ -54,8 +54,10 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     sendEmailVerification: builder.mutation({
       query: (userId) => ({
         url: `/send_verification_link/${userId}`,
-        method: "POST",
-        body: userId,
+        // url: "/send_verification_link",
+        // method: "POST",
+        method: "GET",
+        // body: userId,
       }),
     }),
     isEmailVerified: builder.query({
@@ -124,6 +126,7 @@ export const {
   useCreateUserMutation,
   useSendEmailVerificationMutation,
   useIsEmailVerifiedQuery,
+  useLazyIsEmailVerifiedQuery,
   useGetAllFollowsQuery,
   useFollowUserMutation,
 } = usersApiSlice;

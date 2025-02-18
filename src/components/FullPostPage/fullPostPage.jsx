@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import styles from "./fullpostpage.module.css";
-import { ProfileCard } from "../ProfileCard/ProfileCard";
 import { useParams } from "react-router-dom";
 import { Style } from "react-style-tag";
 import { useGetPostByIdQuery } from "../../features/posts/postsApiSlice";
@@ -27,6 +26,7 @@ import { MakeComment_FullPostPage } from "./MakeComment_FullPostPage";
 import { ArrowBackIos } from "@mui/icons-material";
 import { ArrowBack } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
+import { FullPostPage_ProfileCard } from "./ProfileCard/FullPostPage_ProfileCard";
 
 const Layout = styled.div`
   display: grid;
@@ -164,9 +164,9 @@ export const FullPostPage = () => {
         }}
       >
         <div className={styles.container}>
-          <div className={styles.layput}>
+          <div className={styles.layout}>
             <div className={styles.leftsidebar}>
-              {<ProfileCard userIdProp={postDetails?.userId} />}
+              {<FullPostPage_ProfileCard userIdProp={postDetails?.userId} />}
             </div>
             <div className={styles.main}>
               <StickyBar>

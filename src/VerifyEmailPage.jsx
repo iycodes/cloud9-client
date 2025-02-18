@@ -1,16 +1,22 @@
-import styles from "./VerifyEmailPage.module.css"
+import styles from "./VerifyEmailPage.module.css";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Style } from "react-style-tag";
 import mailIcon from "./assets/SVGs/mail2.svg";
 import { Button } from "@mui/material";
 import cloud9Icon from "./assets/SVGs/cloud9purple.png";
-import { useSendEmailVerificationMutation } from "./features/users/usersApiSlice";
+import {
+  useIsEmailVerifiedQuery,
+  useLazyIsEmailVerifiedQuery,
+  useSendEmailVerificationMutation,
+} from "./features/users/usersApiSlice";
 import { store } from "./app/store";
 import { useContext } from "react";
 import { AuthContext } from "./Authentication/AuthContext";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Toaster, toast } from "sonner";
+import { da } from "date-fns/locale";
 
 //
 
@@ -68,7 +74,7 @@ const MailIconDiv = styled.div`
 `;
 
 const MailIcon = styled.img`
-  width:150px;
+  width: 150px;
   margin-bottom: 10px;
 `;
 
@@ -77,7 +83,7 @@ const StyledButton = styled.button``;
 const Div1 = styled.div`
   font-size: xx-large;
   font-weight: 500;
-  color:#702963
+  color: #702963;
 `;
 
 const Div2 = styled.div`
@@ -159,6 +165,9 @@ export const VerifyEmailPage = () => {
 
   const [sendEmailVerification] = useSendEmailVerificationMutation();
   const navigate = useNavigate();
+
+  const [trigger, { isLoading }] = useLazyIsEmailVerifiedQuery();
+
   //
 
   const verifyEmail = async () => {
@@ -181,11 +190,35 @@ export const VerifyEmailPage = () => {
   //
 
   const handleLogin = async () => {
+    if (isLoading) {
+      console.log("prev request still loading");
+      return;
+    }
     try {
-      // signout hasnt been implemented yet
-      navigate("/login");
+      toast.loading("Checking...", { id: "toast1" });
+      const { isSuccess, data, isError } = await trigger(userId);
+      // await trigger(userId);
+      if (isError) {
+        toast.error("Error verifying", { id: "toast1" });
+      }
+      console.log("isEmailVerified is", data);
+      if (isSuccess) {
+        console.log("api reuest for email verification check is succesful");
+        if (data == true) {
+          authContext.authUserData = {
+            ...authContext.authUserData,
+            isEnailVerified: true,
+          };
+          toast.success("Verified!", { id: "toast1" });
+          // navigate("/");
+          window.location.reload();
+        } else {
+          toast.error("Email yet to be verified!", { id: "toast1" });
+        }
+      }
     } catch (error) {
       console.log(error);
+      toast.error("Error verifying", { id: "toast1" });
     }
   };
 
@@ -193,12 +226,13 @@ export const VerifyEmailPage = () => {
 
   //
   return (
-    <div className={styles.layout} >
+    <div className={styles.layout}>
+      <Toaster richColors />
       <Main id="verify_email">
         <LeftSide>
-            <div className={styles.topText}>
-                  <div className={styles.shape}> </div> Cloud9
-                </div>
+          <div className={styles.topText}>
+            <div className={styles.shape}> </div> Cloud9
+          </div>
           <Layout1>
             {/* <Logo src={cloud9Icon} alt="" /> */}
             <MailIconDiv>
@@ -230,9 +264,9 @@ export const VerifyEmailPage = () => {
             </Div3>
             <Div4Wrapper>
               <Div4>
-                Verified your email? Proceed to
-                <LoginLink onClick={handleLogin}> Login</LoginLink>
-              </Div4>{" "}
+                Verified your email?
+                <LoginLink onClick={handleLogin}> Proceed</LoginLink>
+              </Div4>
             </Div4Wrapper>
           </Layout1>
         </LeftSide>
